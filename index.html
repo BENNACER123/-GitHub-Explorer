@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore GitHub developers and discover their latest open-source projects."
+    />
+    <meta name="theme-color" content="#0d1117" />
+    <title>GitHub Explorer</title>
+    <link rel="preconnect" href="https://api.github.com" />
+    <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="GitHub Explorer home">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.68-3.76-1.32-3.76-1.32-.5-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.73 2.63 1.23 3.27.94.1-.73.39-1.23.71-1.51-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.42.11-2.96 0 0 .95-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.67.11 2.96.72.78 1.16 1.78 1.16 3 0 4.29-2.61 5.23-5.1 5.51.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"
+          />
+        </svg>
+        <span>GitHub <strong>Explorer</strong></span>
+      </a>
+      <a
+        class="topbar-link"
+        href="https://github.com"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Visit GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span> THE OPEN-SOURCE COMMUNITY
+        </div>
+        <h1 id="page-title">
+          Find your next<br /><span>favorite developer.</span>
+        </h1>
+        <p class="hero-copy">
+          Explore the people behind the projects. Search GitHub users and take a
+          closer look at what they’re building.
+        </p>
+
+        <form class="search-form" id="search-form" role="search">
+          <label class="sr-only" for="username-search"
+            >Search GitHub users</label
+          >
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 4.5 4.5"></path>
+          </svg>
+          <input
+            id="username-search"
+            name="q"
+            type="search"
+            placeholder="Search a username or developer..."
+            autocomplete="off"
+            required
+            minlength="1"
+          />
+          <button type="submit" id="search-button">
+            <span>Explore</span><span aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p class="search-hint">
+          Try a name like
+          <button class="suggestion" type="button">torvalds</button> or
+          <button class="suggestion" type="button">sindresorhus</button>
+        </p>
+      </section>
+
+      <section class="explorer" aria-label="GitHub search results">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">DISCOVER</p>
+            <h2 id="results-heading">The community</h2>
+          </div>
+          <p class="result-count" id="result-count"></p>
+        </div>
+
+        <p
+          class="status-message"
+          id="status-message"
+          role="status"
+          aria-live="polite"
+        >
+          Search for a GitHub username to get started.
+        </p>
+        <div class="explorer-layout" id="explorer-layout" hidden>
+          <div
+            class="user-results"
+            id="user-results"
+            aria-label="Matching GitHub users"
+          ></div>
+          <section
+            class="profile-panel"
+            id="profile-panel"
+            aria-label="Selected GitHub profile"
+            aria-live="polite"
+          ></section>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Made for the curious.</span>
+      <span>Powered by the GitHub API <span class="footer-mark">✳</span></span>
+    </footer>
+  </body>
+</html>
